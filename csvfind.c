@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -29,12 +31,12 @@ int main( int argc, char *argv[] ) {
     }
 
     char *input_file = argv[1];
-    char *search_term = argv[2];
+    char *search_term = to_lowercase( argv[2] );
     char *header_name;
 
     int search_header = argc >= 4;
     if( search_header ) {
-        header_name = argv[3];
+        header_name = to_lowercase( argv[3] );
     }
 
     int buffer_length = 1024;
@@ -64,18 +66,18 @@ int main( int argc, char *argv[] ) {
             if( line_number == 0 ) {
                 char trimmed[256];
                 trim( token, trimmed );
-                strcpy( header_buffer[col_number], trimmed );
+                strcpy( header_buffer[col_number], to_lowercase( trimmed ) );
             };
 
             char *current_header = header_buffer[col_number];
             col_number++;
 
-            if( search_header && ( current_header == NULL || strcmp( to_lowercase( current_header ), to_lowercase( header_name ) ) != 0 ) ) {
+            if( search_header && ( current_header == NULL || strcmp( current_header, header_name ) != 0 ) ) {
                 token = strtok( NULL, "," );
                 continue;
             }
 
-            if( strstr( to_lowercase( token ), to_lowercase( search_term ) ) != NULL ) {
+            if( strcasestr( token, search_term ) != NULL ) {
                 print_line = 1;
             }
 
