@@ -24,6 +24,29 @@ char * to_lowercase( char *text ) {
     return text;
 }
 
+// This is my own case-insensitive implementation of strstr
+// but it is much slower than strcasestr so I did not use it
+// in the end. It is largely based on the answers here:
+// https://stackoverflow.com/questions/27303062/
+char *stristr( char *haystack, char *needle ) {
+    int needle_first_lower = tolower( *needle );
+
+    for( ; *haystack++ != '\0'; ) {
+        if( tolower( *haystack ) == needle_first_lower ) {
+            for( int i = 0; ; ) {
+                if( needle[++i] == '\0' ) {
+                    return haystack;
+                }
+                if( tolower( haystack[i] ) != tolower( needle[i] ) ) {
+                    break;
+                }
+            }
+        }
+    }
+
+    return NULL;
+}
+
 int main( int argc, char *argv[] ) {
     if( argc < 3 ) {
         printf( "Usage: %s INPUT_FILE SEARCH_TERM [HEADER_NAME]\n", argv[0] );
