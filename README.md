@@ -25,3 +25,13 @@ For example, to search in `products.csv` for rows that have `sunglasses` in the 
 ```console
 $ ./csvfind products.csv sunglasses name
 ```
+
+## PHP version
+
+I also made a PHP version of the program to test the performance of my C program compared to PHP. Surprisingly my original C program was slower than the PHP version. I then optimized the C code to make it faster than the PHP version. The main problem was using the `to_lowercase` function along with `strstr`. By switching to `strcasestr` the program became a lot faster.
+
+## Rust version
+
+As I was testing the performance between the PHP version and the C version, I also created a Rust version to see whether it would be faster than the PHP version. It is not. I have not yet found a solution to make the Rust version faster than the PHP version. Most of the slowness seems to come from using `to_lowercase` with `contains` in the loop. I have not yet found a performant method to search for a string in another string case-insensitively in Rust.
+
+Feel free to send a pull request if you can make the Rust / C / PHP version any faster.
