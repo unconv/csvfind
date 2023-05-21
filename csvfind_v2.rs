@@ -21,13 +21,14 @@ fn main() -> std::io::Result<()> {
     let reader = BufReader::new(input_file);
     let mut lines = reader.lines();
 
-    let headers = lines
+    let raw_headers = lines
         .next()
-        .expect("Headers should be presented in the CSV file")?
-        .split(',')
-        .map(|s| s.trim().to_string())
-        .collect::<Vec<_>>();
+        .expect("Headers should be presented in the CSV file")?;
 
+    println!("{}", raw_headers);
+
+    let headers = raw_headers.split(',').map(str::trim).collect::<Vec<_>>();
+    
     for line in lines {
         let line = line?;
 
