@@ -1,36 +1,17 @@
 #!/bin/bash
 
-# Compile csvfind.rs
-rustc -O -o rust-csvfind csvfind.rs
+# Compile the specified Rust script
+rustc -O -o rust-script "$RUST_TEST_FILE"
 
-# Compile csvfind_v2.rs
-rustc -O -o rust-csvfind_v2 csvfind_v2.rs
+# Execute the test
+./rust-script products.csv sunglasses name > output.txt
 
-# Wait for compilation to complete (adjust the duration as needed)
-#sleep 1
-
-# Test csvfind.rs
-echo "Testing csvfind.rs"
-./rust-csvfind products.csv sunglasses name > output1.txt
-
-# Compare output1 with expected file
-if cmp -s expected_output.txt output1.txt; then
-  echo "Test passed: Output matches expected result for csvfind.rs"
-  rm -rf output1.txt
+# Compare output with expected file
+if cmp -s expected_output.txt output.txt; then
+  echo "Test passed: Output matches expected result for $RUST_TEST_FILE"
+  rm -rf output.txt
 else
-  echo "Test failed: Output does not match expected result for csvfind.rs "
-  cat output1.txt
-fi
-
-# Test csvfind_v2.rs
-echo "Testing csvfind_v2.rs"
-./rust-csvfind_v2 products.csv sunglasses name > output2.txt
-
-# Compare output2 with expected file
-if cmp -s expected_output.txt output2.txt; then
-  echo "Test passed: Output matches expected result for csvfind_v2.rs"
-  rm -rf output2.txt
-else
-  echo "Test failed: Output does not match expected result for csvfind_v2.rs "
-  cat output2.txt
+  echo "Test failed: Output does not match expected result for $RUST_TEST_FILE"
+  cat output.txt
+  exit 1
 fi
