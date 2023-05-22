@@ -32,6 +32,10 @@ I also made a PHP version of the program to test the performance of my C program
 
 ## Rust version
 
-As I was testing the performance between the PHP version and the C version, I also created a Rust version to see whether it would be faster than the PHP version. It is not. I have not yet found a solution to make the Rust version faster than the PHP version. Most of the slowness seems to come from using `to_lowercase` with `contains` in the loop. I have not yet found a performant method to search for a string in another string case-insensitively in Rust.
+Thanks to @alan910127, there is now a Rust version of the program that is in fact **faster** than the PHP *and* the C versions! You can find it in the `csvfind_v2.rs` file.
 
-Feel free to send a pull request if you can make the Rust / C / PHP version any faster.
+If you can make a faster version in C (or PHP), feel free to make a pull request!
+
+<s>As I was testing the performance between the PHP version and the C version, I also created a Rust version to see whether it would be faster than the PHP version. It is not. I have not yet found a solution to make the Rust version faster than the PHP version. Most of the slowness seems to come from using `to_lowercase` with `contains` in the loop. I have not yet found a performant method to search for a string in another string case-insensitively in Rust.
+
+Feel free to send a pull request if you can make the Rust / C / PHP version any faster.</s>
