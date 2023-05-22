@@ -1,17 +1,28 @@
-name: Rust
+name: Rust Test Comparison
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
+    paths:
+      - 'csvfind.rs'
+      - 'csvfind_v2.rs'
 
 jobs:
-  build:
-
+  run_tests:
     runs-on: ubuntu-latest
 
+    env:
+      RUST_TEST_FILE: ${{ matrix.test_file }}
+
+    strategy:
+      matrix:
+        test_file: [csvfind.rs, csvfind_v2.rs]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: testing csvfind rust versions
-        run: ./test_rust_csvfind.sh
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Test Script
+        run: |
+          ./test_rust_csvfind.sh
