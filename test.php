@@ -9,6 +9,7 @@ exec( "rustc -O -o rust-csvfindv2-test csvfind_v2.rs" );
 echo "Testing...\n";
 test( "php csvfind.php output.csv winkpad", 5 );
 test( "php csvfind_v2.php output.csv winkpad", 5 );
+test( "php -dopcache.enable_cli=1 -dopcache.jit_buffer_size=100M -dopcache.jit=1255 csvfind_v2.php output.csv winkpad", 5 );
 test( "./c-csvfind-test output.csv winkpad", 5 );
 test( "./rust-csvfind-test output.csv winkpad", 5 );
 test( "./rust-csvfindv2-test output.csv winkpad", 5 );
