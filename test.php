@@ -1,7 +1,7 @@
 <?php
 // compile C and Rust versions
 echo "Compiling...\n";
-exec( "gcc -o c-csvfind-test csvfind.c" );
+exec( "gcc -O -o c-csvfind-test csvfind.c" );
 exec( "rustc -O -o rust-csvfind-test csvfind.rs" );
 exec( "rustc -O -o rust-csvfindv2-test csvfind_v2.rs" );
 
