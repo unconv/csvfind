@@ -42,7 +42,7 @@ How I made it:
 https://www.youtube.com/watch?v=-45gWVRLb-Q 
 
 1st C/PHP/Rust comparison:  
-https://www.youtube.com/watch?v=-45gWVRLb-Q
+https://www.youtube.com/watch?v=XPkhjIGlbbU
 
 2nd C/PHP/Rust comparison:  
 *Coming soon...*
