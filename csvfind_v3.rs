@@ -36,12 +36,7 @@ fn main() -> std::io::Result<()> {
             break;
         };
         // get the correct cell from the expected index
-        let Some(cell) = line
-            .split(',')
-            .nth(col_idx)
-            // .map(|c| c.trim().to_ascii_lowercase())
-            .map(|c| c.trim())
-        else {
+        let Some(cell) = line.split(',').nth(col_idx).map(|c| c.trim()) else {
             continue;
         };
         if cell.to_ascii_lowercase().contains(&search_term) {
