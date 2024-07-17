@@ -19,7 +19,7 @@ fn main() -> std::io::Result<()> {
 
     let raw_headers = lines
         .next()
-        .expect("Headers should be presented in the CSV file")?;
+        .expect("Headers should be present in the CSV file")?;
 
     println!("{}", raw_headers);
 

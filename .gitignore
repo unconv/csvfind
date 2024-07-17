@@ -2,3 +2,5 @@ csvfind
 csvfind_chatgpt
 csvcopy
 output.csv
+.direnv
+/target
