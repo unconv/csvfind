@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "Compiling...";
+echo "Compiling..."
 
 gcc -O -o c-csvfind-test-orig csvfind_orig.c
 gcc -O -o c-csvfind-test csvfind.c
@@ -7,7 +7,7 @@ rustc -C opt-level=3 -C lto -C codegen-units=1 -o rust-csvfind-test csvfind.rs
 rustc -C opt-level=3 -C lto -C codegen-units=1 -o rust-csvfindv2-test csvfind_v2.rs
 rustc -C opt-level=3 -C lto -C codegen-units=1 -o rust-csvfindv3-test csvfind_v3.rs
 
-echo "Testing...";
+echo "Testing..."
 
 hyperfine --warmup 3 "php csvfind.php output.csv winkpad" \
 "php csvfind_v2.php output.csv winkpad" \
