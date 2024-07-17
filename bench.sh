@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 echo "Compiling...\n";
 
 gcc -O -o c-csvfind-test-orig csvfind_orig.c
