@@ -16,7 +16,7 @@ hyperfine --warmup 3 "php csvfind.php output.csv winkpad" \
 "./c-csvfind-test output.csv winkpad" \
 "./rust-csvfind-test output.csv winkpad" \
 "./rust-csvfindv2-test output.csv winkpad" \
-"./rust-csvfindv3-test output.csv winkpad" \
+"./rust-csvfindv3-test output.csv winkpad"
 
 rm c-csvfind-test-orig
 rm c-csvfind-test
