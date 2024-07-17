@@ -8,14 +8,14 @@ It has since turned into somewhat of a competition of different programming lang
 
 | Implementation       | Mean execution time |
 | -------------------- | ------------------- |
-| csvfind.php          | 71.4 ms             |
-| csvfind_v2.php       | 29.0 ms             |
-| csvfind_v2.php (jit) | 29.4 ms             |
-| c-csvfind-test-orig  | 41.6 ms             |
-| c-csvfind-test       | 46.8 ms             |
-| rust-csvfind-test    | 88.4 ms             |
-| rust-csvfindv2-test  | 43.5 ms             |
-| rust-csvfindv3-test  | 14.6 ms             |
+| csvfind.php          | 73.4 ms             |
+| csvfind_v2.php       | 32.7 ms             |
+| csvfind_v2.php (jit) | 33.1 ms             |
+| c-csvfind-test-orig  | 42.0 ms             |
+| c-csvfind-test       | 47.9 ms             |
+| rust-csvfind-test    | 88.2 ms             |
+| rust-csvfindv2-test  | 44.1 ms             |
+| rust-csvfindv3-test  | 15.4 ms             |
 
 ## Usage
 
