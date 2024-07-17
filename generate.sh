@@ -16,7 +16,7 @@ for i in {1..9999}; do
 done
 
 # Modify the last line
-LAST_LINE=$(tail -n 1 output.csv | sed '0,/ThinkPad/s//WinkPad/')
+LAST_LINE=$(sed '$!d' output.csv | sed '0,/ThinkPad/s//WinkPad/')
 
 # Delete the last line
 sed -i '$d' output.csv
