@@ -40,6 +40,12 @@ For example, to search in `products.csv` for rows that have `sunglasses` in the 
 $ ./csvfind products.csv sunglasses name
 ```
 
+## Benchmark
+
+To run the benchmark, you need PHP, a C compiler, the Rust toolchain as well as [`hyperfine`](https://github.com/sharkdp/hyperfine).
+
+Then, the `bench.sh` script can be invoked.
+
 ## Videos
 
 How I made it:
