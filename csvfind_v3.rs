@@ -33,7 +33,7 @@ fn main() -> std::io::Result<()> {
         }
         let Some(col_idx) = header_idx else {
             println!("{line}");
-            break;
+            continue;
         };
         // get the correct cell from the expected index
         let Some(cell) = line.split(',').nth(col_idx).map(|c| c.trim()) else {
@@ -41,7 +41,7 @@ fn main() -> std::io::Result<()> {
         };
         if cell.to_ascii_lowercase().contains(&search_term) {
             println!("{line}");
-            break;
+            continue;
         }
     }
 
