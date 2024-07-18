@@ -1,0 +1,23 @@
+[package]
+name = "csvfind"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "csvfind"
+path = "csvfind.rs"
+
+[[bin]]
+name = "csvfind_v2"
+path = "csvfind_v2.rs"
+
+[[bin]]
+name = "csvfind_v3"
+path = "csvfind_v3.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
