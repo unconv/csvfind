@@ -5,7 +5,7 @@
     # Rust
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follow = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
